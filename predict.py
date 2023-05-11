@@ -19,7 +19,7 @@ def process_file_last(file_path, avg_df):
     else:
         new_df = df
     df = new_df[new_df.columns.drop([LABEL_COL])]
-    num_cols = len(df.columns())
+    num_cols = len(df.columns)
     df = df.ffill().fillna(avg_df)
     last_hour_data = df.tail(1).reset_index(drop=True)
     avg_data = df.mean().to_frame().T.reset_index(drop=True)
